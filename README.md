@@ -12,3 +12,9 @@ You can install the package via composer:
 
 ```bash
 composer require mohsincrud/crud
+
+
+You can install the package via composer:
+
+```bash
+composer require mohsincrud/crud
