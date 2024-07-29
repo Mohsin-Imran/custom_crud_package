@@ -8,6 +8,23 @@ A custom CRUD package for Laravel to simplify creating, reading, updating, and d
 
 ## Installation
 
+composer.json:
+
+```bash
+ "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+```
+
+
 You can install the package via composer:
 
 ```bash
