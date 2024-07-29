@@ -12,12 +12,3 @@ You can install the package via composer:
 
 ```bash
 composer require mohsincrud/crud
-
-'providers' => [
-    // Other Service Providers
-
-    Mohsin\Crud\ContactServiceProvider::class,
-],
-
-Then Database name create 
-php artisan migrate
