@@ -13,7 +13,6 @@ You can install the package via composer:
 ```bash
 composer require mohsincrud/crud
 
-```bash
 'providers' => [
     // Other Service Providers
 
@@ -21,6 +20,4 @@ composer require mohsincrud/crud
 ],
 
 Then Database name create 
-
-```bash
 php artisan migrate
