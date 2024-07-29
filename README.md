@@ -37,8 +37,7 @@ If you are using Laravel 5.5 or higher, the package will automatically register 
 ```bash
 'providers' => [
     // Other Service Providers
-
-    Mohsin\Crud\ContactServiceProvider::class,
+     MohsinCrud\Crud\ContactServiceProvider::class,
 ],
 ```
 
