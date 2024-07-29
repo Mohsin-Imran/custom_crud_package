@@ -1,0 +1,19 @@
+{
+    "name": "mohsincrud/crud",
+    "description": "This is Package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MNMEMON",
+            "email": "mohsin2110b@aptechgdn.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MohsinCrud\\Crud\\": "src/"
+        }
+    }
+}
