@@ -3,7 +3,7 @@
         'name' => 'mohsincrud/crud',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '59c92f009bd4c594e5d83f8ec3dc73ebe8fd4f0d',
+        'reference' => '2200173a42dff83ad35ff745138f794c9f68ee60',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'mohsincrud/crud' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '59c92f009bd4c594e5d83f8ec3dc73ebe8fd4f0d',
+            'reference' => '2200173a42dff83ad35ff745138f794c9f68ee60',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
