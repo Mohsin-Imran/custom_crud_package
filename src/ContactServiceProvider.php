@@ -8,22 +8,14 @@ class ContactServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        // Load routes, views, migrations, etc.
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-        $this->loadViewsFrom(__DIR__ . '/views', 'create');
+        $this->loadViewsFrom(__DIR__ . '/views', 'crud');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-        $this->mergeConfigFrom(
-            __DIR__ . '/config/contact.php',
-            'contact'
-        );
-
-        // Publish configuration file
-        $this->publishes([
-            __DIR__ . '/config/contact.php' => config_path('contact.php')
-        ], 'config');
 
         // Publish views
         $this->publishes([
-            __DIR__ . '/views' => resource_path('views/vendor/mohsin-crud'),
+            __DIR__ . '/views' => resource_path('views/vendor/mohsincrud'),
         ], 'views');
     }
 
