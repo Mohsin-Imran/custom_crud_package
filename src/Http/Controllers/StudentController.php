@@ -27,7 +27,6 @@ class ContactServiceProvider extends ServiceProvider
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'migrations');
     }
-
     public function register()
     {
         // Register any bindings or services if needed
