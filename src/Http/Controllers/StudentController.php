@@ -1,76 +1,35 @@
 <?php
 
-namespace MohsinCrud\Crud\Http\Controllers;
+namespace MohsinCrud\Crud;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use MohsinCrud\Crud\Models\Student;
+use Illuminate\Support\ServiceProvider;
 
-class StudentController extends Controller
+class ContactServiceProvider extends ServiceProvider
 {
-    public function index()
+    public function boot()
     {
-        $students = Student::all();
-        return view('create::index', get_defined_vars());
-    }
-    public function create()
-    {
-        return view('create::create');
-    }
+        // Load Routes from the package (adjusting path as per the new directory structure)
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
 
-    public function store(Request $request)
-    {
-        // dd($request->all());
+        // Load Views from the package (adjusting path as per the new directory structure)
+        $this->loadViewsFrom(__DIR__ . '/../views', 'crud');
 
-        $student = new Student;
+        // Load Migrations from the package (adjusting path as per the new directory structure)
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $fileName = time() . '.' . $image->getClientOriginalExtension();
-            $uploadPath = public_path('students');
-            $image->move($uploadPath, $fileName);
-            $student->image = $fileName;  // Changed from $post to $student
-        }
+        // Publish views to the user's project
+        $this->publishes([
+            __DIR__ . '/../views' => resource_path('views/vendor/mohsincrud'),
+        ], 'views');
 
-        $student->name = $request->name;
-        $student->email = $request->email;
-        $student->country = $request->country;
-        $student->number = $request->number;
-        $student->save();
-
-        return redirect()->route('student.index')->with('success', 'Student added successfully.');
+        // Publish migrations to the user's project
+        $this->publishes([
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
+        ], 'migrations');
     }
 
-
-    public function edit($id)
+    public function register()
     {
-        $student = Student::find($id);
-        return view('create::edit', get_defined_vars());
-    }
-
-    public function update(Request $request, $id)
-    {
-        $student = Student::find($id);
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $fileName = time() . '.' . $image->getClientOriginalExtension();
-            $uploadPath = public_path('students');
-            $image->move($uploadPath, $fileName);
-            $student->image = $fileName;  // Changed from $post to $student
-        }
-
-        $student->name = $request->name;
-        $student->email = $request->email;
-        $student->country = $request->country;
-        $student->number = $request->number;
-        $student->save();
-        return redirect()->route('student.index')->with('success', 'Student updated successfully.');
-    }
-
-    public function destroy($id)
-    {
-        $student = Student::find($id);
-        $student->delete();
-        return back();
+        // Register any bindings or services if needed
     }
 }
