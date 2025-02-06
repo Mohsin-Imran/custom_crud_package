@@ -15,11 +15,20 @@ class ContactServiceProvider extends ServiceProvider
             __DIR__ . '/config/contact.php',
             'contact'
         );
+
+        // Publish configuration file
         $this->publishes([
             __DIR__ . '/config/contact.php' => config_path('contact.php')
-        ]);
+        ], 'config');
+
+        // Publish views
+        $this->publishes([
+            __DIR__ . '/views' => resource_path('views/vendor/mohsin-crud'),
+        ], 'views');
     }
+
     public function register()
     {
+        // Register any bindings or services here
     }
 }
